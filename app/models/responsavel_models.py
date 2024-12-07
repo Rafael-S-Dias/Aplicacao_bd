@@ -8,10 +8,10 @@ class Responsavel(Base):
     __tablename__ = "responsavel"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    email = Column(String(50))
-    senha = Column(String(20))
-    ddd = Column(Integer(3))
-    telefone = Column(Integer(17))
+    email = Column(String(50), unique=True, nullable=False)
+    senha = Column(String(20), nullable=False)
+    ddd = Column(Integer(3), nullable=False)
+    telefone = Column(Integer(17), nullable=False)
 
 
     def __init__(self, email: str, senha: str, ddd: int, telefone: str):
@@ -21,4 +21,4 @@ class Responsavel(Base):
         self.telefone = telefone))
 
     
-Base.metadata.create_all(bind=db)
+# Base.metadata.create_all(bind=db)
