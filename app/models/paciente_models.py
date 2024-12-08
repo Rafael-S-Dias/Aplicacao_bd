@@ -1,7 +1,7 @@
 from sqlalchemy import Column, String, Integer, Date
 from sqlalchemy.orm import declarative_base
-from config.database import db
 from datetime import date
+# from config.database import db
 
 Base = declarative_base()
 
@@ -57,4 +57,4 @@ class Paciente(Base):
         self.logradouro = logradouro
         
     
-Base.metadata.create_all(bind=db)
+# Base.metadata.create_all(bind=db)

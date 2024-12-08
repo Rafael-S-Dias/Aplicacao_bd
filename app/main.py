@@ -1,15 +1,16 @@
 import os
 import time
-from services.usuario_service import UsuarioService
-from repositories.usuario_repository import UsuarioRepository
+from services.responsavel_service import ResponsavelService
+from repositories.responsavel_repository import ResponsavelRepository
 from config.database import Session
+# from datetime import datetime
 
 os.system("cls || clear")
 
 def main():
     session = Session()
-    repository = UsuarioRepository(session)
-    service = UsuarioService(repository)
+    repository = ResponsavelRepository(session)
+    service = ResponsavelService(repository)
 
     def menu():
         while True:
@@ -64,7 +65,7 @@ def main():
                     time.sleep(2)
 
 
-    menu()
+    service.criar_responsavel()
 
 if __name__ == "__main__":
         main()

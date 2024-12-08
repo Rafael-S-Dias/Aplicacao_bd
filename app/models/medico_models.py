@@ -1,13 +1,13 @@
-from sqlalchemy import Column, String, Integer
+from sqlalchemy import Column, String
 from sqlalchemy.orm import declarative_base
-from config.database import db
+# from config.database import db
 
 Base = declarative_base()
 
 class Medico(Base):
     __tablename__ = "medico"
 
-    crm = Column(String, primary_key=True)
+    crm = Column(String(30), primary_key=True)
     primeiroNome = primeiroNome
     nomeMeio = nomeMeio
     ultimoNome = ultimoNome
@@ -22,4 +22,4 @@ class Medico(Base):
         self.especialiadade = especialiadade
 
     
-Base.metadata.create_all(bind=db)
+# Base.metadata.create_all(bind=db)

@@ -1,11 +1,11 @@
-from sqlalchemy import Column, String, Integer
+from sqlalchemy import Column, String, Integer, Date
 from sqlalchemy.orm import declarative_base
 from config.database import db
 from datetime import date
 
 Base = declarative_base()
 
-class Retiradas(Base):
+class Retirada(Base):
     __tablename__ = "retiradas"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
@@ -14,7 +14,7 @@ class Retiradas(Base):
     receita = Column(String(50)) 
 
 
-    def __init__(self, data: str, local: str, receita: str):
+    def __init__(self, data: date, local: str, receita: str):
         self.data = data
         self.local = local
         self.receita = receita

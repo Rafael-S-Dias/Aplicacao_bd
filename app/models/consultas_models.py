@@ -1,7 +1,7 @@
-from sqlalchemy import Column, String, Integer
+from sqlalchemy import Column, String, Integer, Date, Time
 from sqlalchemy.orm import declarative_base
-from config.database import db
 from datetime import date, time
+# from config.database import db
 
 Base = declarative_base()
 
@@ -15,11 +15,11 @@ class Consultas(Base):
     horario = Column(Time)
 
 
-    def __init__(self, data: str, local: str, sala: str, horario: time):
+    def __init__(self, data: date, local: str, sala: str, horario: time):
         self.data = data
         self.local = local
         self.sala = sala
         self.horario = horario
 
     
-Base.metadata.create_all(bind=db)
+# Base.metadata.create_all(bind=db)
