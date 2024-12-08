@@ -10,10 +10,10 @@ class Paciente(Base):
 
     cpf = Column(Integer, primary_key=True)
     ciptea = Column(String(50))
+    dataNascimento = Column(Date)
     primeiroNome = Column(String(20))
     nomeMeio = Column(String(20))
     ultimoNome = Column(String(20))
-    dataNascimento = Column(Date)
 
     primeiroNomePai = Column(String(20))
     nomeMeioPai = Column(String(20))
@@ -30,16 +30,16 @@ class Paciente(Base):
     estado = Column(String(50))
     logradouro = Column(String(50))
 
-    def __init__(self, cpf: str, ciptea: str, primeiroNome: str, nomeMeio: str, ultimoNome: str, dataNascimento: date,
+    def __init__(self, cpf: str, ciptea: str, dataNascimento: date, primeiroNome: str, nomeMeio: str, ultimoNome: str, 
         primeiroNomePai: str, nomeMeioPai: str, ultimoNomePai: str, primeiroNomeMae: str, nomeMeioMae: str, ultimoNomeMae: str,
         numero: int, complemento: str, cidade: str, cep: str, estado: str, logradouro: str
     ):
         self.cpf = cpf
         self.ciptea = ciptea
+        self.dataNascimento = dataNascimento
         self.primeiroNome = primeiroNome
         self.nomeMeio = nomeMeio
         self.ultimoNome = ultimoNome
-        self.dataNascimento = dataNascimento
 
         self.primeiroNomePai = primeiroNomePai
         self.nomeMeioPai = nomeMeioPai

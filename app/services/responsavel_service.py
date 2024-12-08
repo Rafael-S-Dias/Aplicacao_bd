@@ -71,7 +71,7 @@ class ResponsavelService:
             cadastro = self.repository.pesquisar_responsavel_por_email(email)
             if cadastro:
                 print("Dados do Responsável: ")
-                print(f"\n Id: {cadastro.id} | Email: {cadastro.email} | DDD: {cadastro.ddd}| Email: {cadastro.email}")
+                print(f"\n Id: {cadastro.id} | Email: {cadastro.email} | DDD: {cadastro.ddd}| Telefone: {cadastro.telefone}")
                 return
             
             print("Responsável não encontrado")

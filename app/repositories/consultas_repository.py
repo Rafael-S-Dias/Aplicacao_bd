@@ -21,5 +21,5 @@ class ConsultasRepository:
         self.session.delete(consultas)
         self.session.commit()
 
-    def listar_todos_consultass(self):
+    def listar_todas_consultas(self):
         return self.session.query(Consultas).all()

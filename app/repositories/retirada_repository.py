@@ -1,7 +1,7 @@
 from models.retirada_models import Retirada
 from sqlalchemy.orm import Session
 
-class retiradaRepository: 
+class RetiradaRepository: 
     def __init__(self, session: Session):
         self.session = session
 
@@ -21,5 +21,5 @@ class retiradaRepository:
         self.session.delete(retirada)
         self.session.commit()
 
-    def listar_todos_retiradas(self):
+    def listar_todas_retiradas(self):
         return self.session.query(Retirada).all()
