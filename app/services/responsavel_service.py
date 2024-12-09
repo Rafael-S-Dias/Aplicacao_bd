@@ -5,6 +5,12 @@ class ResponsavelService:
     def __init__(self, repository: ResponsavelRepository) -> None:
         self.repository = repository
 
+    def login_responsavel(self, email: str, senha: str):
+        responsavel = self.repository.pesquisar_responsavel_por_email(email)
+        if responsavel and responsavel.senha == senha:
+            return responsavel
+        return None
+
     def criar_responsavel(self) :
         try:
             email = input("Digite seu e-mail: ")

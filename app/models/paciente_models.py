@@ -23,7 +23,7 @@ class Paciente(Base):
     nomeMeioMae = Column(String(20))
     ultimoNomeMae = Column(String(20))
 
-    numero = Column(Integer(30))
+    numero = Column(String(50))
     complemento = Column(String(50))
     cidade = Column(String(50))
     cep = Column(String(50))
@@ -32,7 +32,7 @@ class Paciente(Base):
 
     def __init__(self, cpf: str, ciptea: str, dataNascimento: date, primeiroNome: str, nomeMeio: str, ultimoNome: str, 
         primeiroNomePai: str, nomeMeioPai: str, ultimoNomePai: str, primeiroNomeMae: str, nomeMeioMae: str, ultimoNomeMae: str,
-        numero: int, complemento: str, cidade: str, cep: str, estado: str, logradouro: str
+        numero: str, complemento: str, cidade: str, cep: str, estado: str, logradouro: str
     ):
         self.cpf = cpf
         self.ciptea = ciptea

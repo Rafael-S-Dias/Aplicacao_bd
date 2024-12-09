@@ -2,7 +2,7 @@ from models.retirada_models import Retirada
 from repositories.retirada_repository import RetiradaRepository
 from datetime import datetime
 
-class retiradaService:
+class RetiradaService:
     def __init__(self, repository: RetiradaRepository) -> None:
         self.repository = repository
 
@@ -87,5 +87,5 @@ class retiradaService:
             print(f"Ocorreu um erro inesperado: {e}")
 
 
-    def listar_todas_retirada(self):
+    def listar_todas_retiradas(self):
         return self.repository.listar_todos_medicos()
