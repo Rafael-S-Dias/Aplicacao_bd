@@ -1,5 +1,6 @@
 import os
 import time
+from datetime import datetime
 from services.consultas_service import ConsultasService
 from services.medico_service import MedicoService
 from services.paciente_service import PacienteService
@@ -11,7 +12,6 @@ from repositories.paciente_repository import PacienteRepository
 from repositories.responsavel_repository import ResponsavelRepository
 from repositories.retirada_repository import RetiradaRepository
 from config.database import Session
-# from datetime import datetime
 
 os.system("cls || clear")
 
@@ -341,7 +341,6 @@ def main():
                     print("Opção inválida! Por favor, selecione uma opção válida.")
                     time.sleep(2)
             
-
 
     menu()
 
