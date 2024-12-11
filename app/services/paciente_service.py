@@ -8,41 +8,42 @@ class PacienteService:
 
     def criar_paciente(self) :
         try:
-            cpf = input("Digite seu CPF: ")
-            ciptea = input("Digite seu CIPTEA: ")
-            data_nascimento = input("Digite sua data de nascimento (DD-MM-AAAA): ")
+            CPF = input("Digite seu CPF: ")
+            CIPTEA = input("Digite seu CIPTEA: ")
+            DataNascimento = input("Digite sua data de nascimento (DD-MM-AAAA): ")
             
             try:
-                data_nascimento = datetime.strptime(data_nascimento, "%d-%m-%Y").date()
+                DataNascimento = datetime.strptime(DataNascimento, "%d-%m-%Y").date()
             except ValueError:
                 print("Data de nascimento inválida! Use o formato DD-MM-AAAA.")
                 return
             
-            primeiro_nome = input("Digite seu primeiro nome: ")
-            nome_meio = input("Digite seu nome do meio (opcional): ")
-            ultimo_nome = input("Digite seu último nome: ")
+            PrimeiroNomePaciente = input("Digite seu primeiro nome: ")
+            NomeMeioPaciente = input("Digite seu nome do meio (opcional): ")
+            UltimoNomePaciente = input("Digite seu último nome: ")
 
-            primeiro_nome_pai = input("Digite o primeiro nome do pai do paciente: ")
-            nome_meio_pai = input("Digite o nome do meio do pai do paciente (opcional): ")
-            ultimo_nome_pai = input("Digite o último nome do pai do paciente: ")
+            PrimeiroNomePai = input("Digite o primeiro nome do pai do paciente: ")
+            NomeMeioPai = input("Digite o nome do meio do pai do paciente (opcional): ")
+            UltimoNomePai = input("Digite o último nome do pai do paciente: ")
 
-            primeiro_nome_mae = input("Digite o primeiro nome da mãe do paciente: ")
-            nome_meio_mae = input("Digite o nome do meio da mãe do paciente (opcional): ")
-            ultimo_nome_mae = input("Digite o último nome da mãe do paciente: ")
+            PrimeiroNomeMae = input("Digite o primeiro nome da mãe do paciente: ")
+            NomeMeioMae = input("Digite o nome do meio da mãe do paciente (opcional): ")
+            UltimoNomeMae = input("Digite o último nome da mãe do paciente: ")
             
-            numero = input("Digite o número da sua rua: ")
-            complemento = input("Digite o complemento: ")
-            cidade = input("Digite o nome da sua cidade: ")
-            cep = input("Digite seu CEP: ")
-            estado = input("Digite o seu estado: ")
-            logradouro = input("Digite o logradouro: ")
+            Logradouro = input("Digite o logradouro: ")
+            Numero = input("Digite o número da sua rua: ")
+            Bairro = input("Digite o seu bairro: ")
+            Complemento = input("Digite o complemento: ")
+            Cidade = input("Digite o nome da sua cidade: ")
+            CEP = input("Digite seu CEP: ")
+            Estado = input("Digite o seu estado: ")
 
-            paciente = Paciente( cpf = cpf, ciptea = ciptea, dataNascimento = data_nascimento, primeiroNome = primeiro_nome, nomeMeio = nome_meio, ultimoNome = ultimo_nome,
-                                 primeiroNomePa = primeiro_nome_pai, nomeMeioPai = nome_meio_pai, ultimoNomePai = ultimo_nome_pai, 
-                                 primeiroNomeMae = primeiro_nome_mae, nomeMeioMae = nome_meio_mae, ultimoNomeMae = ultimo_nome_mae,
-                                 numero = numero, complemento = complemento, cidade = cidade, cep = cep, estado = estado, logradouro = logradouro  )
+            paciente = Paciente( CPF = CPF, CIPTEA = CIPTEA, DataNascimento = DataNascimento, PrimeiroNomePaciente = PrimeiroNomePaciente, NomeMeioPaciente = NomeMeioPaciente, UltimoNomePaciente = UltimoNomePaciente,
+                                 PrimeiroNomePai = PrimeiroNomePai, NomeMeioPai = NomeMeioPai, UltimoNomePai = UltimoNomePai, 
+                                 PrimeiroNomeMae = PrimeiroNomeMae, NomeMeioMae = NomeMeioMae, UltimoNomeMae = UltimoNomeMae,
+                                 Logradouro = Logradouro, Numero = Numero, Bairro = Bairro, Complemento = Complemento, Cidade = Cidade, CEP = CEP, Estado = Estado )
 
-            cadastro = self.repository.pesquisar_paciente_por_cpf(cpf = Paciente.cpf)
+            cadastro = self.repository.pesquisar_paciente_por_cpf(CPF = Paciente.CPF)
             if cadastro:
                 print("Paciente já cadastrado! Tente novamente")
                 return
@@ -56,9 +57,9 @@ class PacienteService:
 
     def deletar_paciente(self):
         try:
-            cpf = input("Digite o cpf do Paciente que deseja deletar: ")
+            CPF = input("Digite o cpf do Paciente que deseja deletar: ")
 
-            cadastro = self.repository.pesquisar_paciente_por_cpf(cpf)
+            cadastro = self.repository.pesquisar_paciente_por_cpf(CPF)
             if cadastro:
                 self.repository.deletar_paciente(cadastro)
                 print("Paciente deletado com sucesso")
@@ -72,30 +73,31 @@ class PacienteService:
 
     def atualizar_paciente(self):
         try:
-            cpf = input("Digite o CPF do paciente que deseja atualizar: ")
+            CPF = input("Digite o CPF do paciente que deseja atualizar: ")
 
-            cadastro = self.repository.pesquisar_paciente_por_cpf(cpf)
+            cadastro = self.repository.pesquisar_paciente_por_cpf(CPF)
             if cadastro:
-                cadastro.ciptea = input("Digite seu CIPTEA: ")
-                cadastro.data_nascimento = input("Digite sua data de nascimento (DD-MM-AAAA): ")
-                cadastro.primeiro_nome = input("Digite o primeiro nome do paciente: ")
-                cadastro.nome_meio = input("Digite o nome do meio do paciente (opcional): ")
-                cadastro.ultimo_nome = input("Digite o último nome do paciente: ")
+                cadastro.CIPTEA = input("Digite seu CIPTEA: ")
+                cadastro.DataNascimento = input("Digite sua data de nascimento (DD-MM-AAAA): ")
+                cadastro.PrimeiroNomePaciente = input("Digite o primeiro nome do paciente: ")
+                cadastro.NomeMeioPaciente = input("Digite o nome do meio do paciente (opcional): ")
+                cadastro.UltimoNomePaciente = input("Digite o último nome do paciente: ")
 
-                cadastro.primeiro_nome_pai = input("Digite o primeiro nome do pai do paciente: ")
-                cadastro.nome_meio_pai = input("Digite o nome do meio do pai do paciente (opcional): ")
-                cadastro.ultimo_nome_pai = input("Digite o último nome do pai do paciente: ")
+                cadastro.PrimeiroNomePai = input("Digite o primeiro nome do pai do paciente: ")
+                cadastro.NomeMeioPai = input("Digite o nome do meio do pai do paciente (opcional): ")
+                cadastro.UltimoNomePai = input("Digite o último nome do pai do paciente: ")
 
-                cadastro.primeiro_nome_mae = input("Digite o primeiro nome da mãe do paciente: ")
-                cadastro.nome_meio_mae = input("Digite o nome do meio da mãe do paciente (opcional): ")
-                cadastro.ultimo_nome_mae = input("Digite o último nome da mãe do paciente: ")
+                cadastro.PrimeiroNomeMae = input("Digite o primeiro nome da mãe do paciente: ")
+                cadastro.NomeMeioMae = input("Digite o nome do meio da mãe do paciente (opcional): ")
+                cadastro.UltimoNomeMae = input("Digite o último nome da mãe do paciente: ")
                 
-                cadastro.numero = input("Digite o número da sua rua: ")
-                cadastro.complemento = input("Digite o complemento: ")
-                cadastro.cidade = input("Digite o nome da sua cidade: ")
-                cadastro.cep = input("Digite seu CEP: ")
-                cadastro.estado = input("Digite o seu estado: ")
-                cadastro.logradouro = input("Digite o logradouro: ")
+                cadastro.Logradouro = input("Digite o logradouro: ")
+                cadastro.Numero = input("Digite o número da sua rua: ")
+                cadastro.Bairro = input("Digite o seu bairro: ")
+                cadastro.Complemento = input("Digite o complemento: ")
+                cadastro.Cidade = input("Digite o nome da sua cidade: ")
+                cadastro.CEP = input("Digite seu CEP: ")
+                cadastro.Estado = input("Digite o seu estado: ")
                 
                 self.repository.atualizar_paciente(cadastro)
                 print("Paciente atualizado com sucesso")
@@ -109,12 +111,12 @@ class PacienteService:
 
     def pesquisar_paciente(self):
         try:
-            cpf = input("Digite o cpf do paciente que deseja pesquisar: ")
+            CPF = input("Digite o cpf do paciente que deseja pesquisar: ")
 
-            cadastro = self.repository.pesquisar_paciente_por_cpf(cpf)
+            cadastro = self.repository.pesquisar_paciente_por_cpf(CPF)
             if cadastro:
                 print("Dados do Paciente: ")
-                print(f"\n CPF: {cadastro.cpf} | CIPTEA: {cadastro.ciptea} | Nome: {cadastro.primeiroNome} | Sobrenome: {cadastro.ultimoNome}")
+                print(f"\n CPF: {cadastro.CPF} | CIPTEA: {cadastro.CIPTEA} | Nome: {cadastro.PrimeiroNomePaciente} | Sobrenome: {cadastro.UltimoNomePaciente}")
                 return
             
             print("Paciente não encontrado")

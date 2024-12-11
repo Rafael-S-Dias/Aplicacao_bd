@@ -14,8 +14,8 @@ class PacienteRepository:
         self.session.commit()
         self.session.refresh(paciente)
 
-    def pesquisar_paciente_por_cpf(self,cpf:str):
-        return self.session.query(Paciente).filter_by(cpf = cpf).first()
+    def pesquisar_paciente_por_cpf(self,CPF:str):
+        return self.session.query(Paciente).filter_by(CPF = CPF).first()
 
     def deletar_paciente(self, paciente):
         self.session.delete(paciente)

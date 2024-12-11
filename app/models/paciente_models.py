@@ -1,60 +1,59 @@
 from sqlalchemy import Column, String, Integer, Date
 from sqlalchemy.orm import declarative_base
 from datetime import date
-# from config.database import db
 
 Base = declarative_base()
 
 class Paciente(Base):
     __tablename__ = "paciente"
 
-    cpf = Column(Integer, primary_key=True)
-    ciptea = Column(String(50))
-    dataNascimento = Column(Date)
-    primeiroNome = Column(String(20))
-    nomeMeio = Column(String(20))
-    ultimoNome = Column(String(20))
+    CPF = Column(Integer, unique=True, primary_key=True)
+    CIPTEA = Column(String(20), unique=True, nullable=False)
+    DataNascimento = Column( Date, nullable=False)
+    PrimeiroNomePaciente = Column(String(20), nullable=False)
+    NomeMeioPaciente = Column(String(20), nullable=False)
+    UltimoNomePaciente = Column(String(20), nullable=False)
 
-    primeiroNomePai = Column(String(20))
-    nomeMeioPai = Column(String(20))
-    ultimoNomePai = Column(String(20))
+    PrimeiroNomePai = Column(String(20), nullable=False)
+    NomeMeioPai = Column(String(20), nullable=False)
+    UltimoNomePai = Column(String(20), nullable=False)
 
-    primeiroNomeMae = Column(String(20))
-    nomeMeioMae = Column(String(20))
-    ultimoNomeMae = Column(String(20))
+    PrimeiroNomeMae = Column(String(20), nullable=False)
+    NomeMeioMae = Column(String(20), nullable=False)
+    UltimoNomeMae = Column(String(20), nullable=False)
 
-    numero = Column(String(50))
-    complemento = Column(String(50))
-    cidade = Column(String(50))
-    cep = Column(String(50))
-    estado = Column(String(50))
-    logradouro = Column(String(50))
+    Logradouro = Column(String(20), nullable=False)
+    Numero = Column(String(5), nullable=False)
+    Bairro = Column(String(20), nullable=False)
+    Complemento = Column(String(20), nullable=False)
+    Cidade = Column(String(20), nullable=False)
+    CEP = Column(String(20), nullable=False)
+    Estado = Column(String(20), nullable=False)
 
-    def __init__(self, cpf: str, ciptea: str, dataNascimento: date, primeiroNome: str, nomeMeio: str, ultimoNome: str, 
-        primeiroNomePai: str, nomeMeioPai: str, ultimoNomePai: str, primeiroNomeMae: str, nomeMeioMae: str, ultimoNomeMae: str,
-        numero: str, complemento: str, cidade: str, cep: str, estado: str, logradouro: str
+    def __init__(self, CPF: str, CIPTEA: str, DataNascimento: date, PrimeiroNomePaciente: str, NomeMeioPaciente: str, UltimoNomePaciente: str, 
+        PrimeiroNomePai: str, NomeMeioPai: str, UltimoNomePai: str, PrimeiroNomeMae: str, NomeMeioMae: str, UltimoNomeMae: str,
+        Logradouro: str, Numero: str, Bairro : str, Complemento: str, Cidade: str, CEP: str, Estado: str, 
     ):
-        self.cpf = cpf
-        self.ciptea = ciptea
-        self.dataNascimento = dataNascimento
-        self.primeiroNome = primeiroNome
-        self.nomeMeio = nomeMeio
-        self.ultimoNome = ultimoNome
+        self.CPF = CPF
+        self.CIPTEA = CIPTEA
+        self.DataNascimento = DataNascimento
+        self.PrimeiroNomePaciente = PrimeiroNomePaciente
+        self.NomeMeioPaciente = NomeMeioPaciente
+        self.UltimoNomePaciente = UltimoNomePaciente
 
-        self.primeiroNomePai = primeiroNomePai
-        self.nomeMeioPai = nomeMeioPai
-        self.ultimoNomePai = ultimoNomePai
+        self.PrimeiroNomePai = PrimeiroNomePai
+        self.NomeMeioPai = NomeMeioPai
+        self.UltimoNomePai = UltimoNomePai
 
-        self.primeiroNomeMae = primeiroNomeMae
-        self.nomeMeioMae = nomeMeioMae
-        self.ultimoNomeMae = ultimoNomeMae       
+        self.PrimeiroNomeMae = PrimeiroNomeMae
+        self.NomeMeioMae = NomeMeioMae
+        self.UltimoNomeMae = UltimoNomeMae       
 
-        self.numero = numero
-        self.complemento = complemento
-        self.cidade = cidade
-        self.cep = cep
-        self.estado = estado
-        self.logradouro = logradouro
-        
+        self.Logradouro = Logradouro
+        self.Numero = Numero
+        self.Bairro = Bairro
+        self.Complemento = Complemento
+        self.Cidade = Cidade
+        self.CEP = CEP
+        self.Estado = Estado  
     
-# Base.metadata.create_all(bind=db)

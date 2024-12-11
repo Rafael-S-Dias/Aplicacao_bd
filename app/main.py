@@ -120,7 +120,7 @@ def main():
                     pacientes = paciente_service.listar_todos_pacientes()
 
                     for paciente in pacientes:
-                        print(f" CPF: {paciente.cpf} | CIPTEA: {paciente.ciptea} | Nome: {paciente.primeiroNome} | Sobrenome: {paciente.ultimoNome}") 
+                        print(f" CPF: {paciente.CPF} | CIPTEA: {paciente.CIPTEA} | Nome: {paciente.PrimeiroNomePaciente} | Sobrenome: {paciente.UltimoNomePaciente}") 
                         time.sleep(2)
                 case 0:
                     os.system("cls || clear")

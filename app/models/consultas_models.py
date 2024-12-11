@@ -1,7 +1,6 @@
 from sqlalchemy import Column, String, Integer, Date, Time
 from sqlalchemy.orm import declarative_base
 from datetime import date, time
-# from config.database import db
 
 Base = declarative_base()
 
@@ -22,4 +21,3 @@ class Consultas(Base):
         self.horario = horario
 
     
-# Base.metadata.create_all(bind=db)

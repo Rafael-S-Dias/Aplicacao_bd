@@ -7,11 +7,11 @@ Base = declarative_base()
 class Medico(Base):
     __tablename__ = "medico"
 
-    CRM = Column(String(30), unique=True, primary_key=True)
-    PrimeiroNomeMedico = Column(String(30), nullable=False)
-    NomeMeioMedico = Column(String(30))
-    UltimoNomeMedico = Column(String(30), nullable=False)
-    Especializacao = Column(String(30), nullable=False)
+    CRM = Column(String(15), unique=True, primary_key=True, nullable=False)
+    PrimeiroNomeMedico = Column(String(20), nullable=False)
+    NomeMeioMedico = Column(String(20), nullable=False)
+    UltimoNomeMedico = Column(String(20), nullable=False)
+    Especializacao = Column(String(20), nullable=False)
 
     def __init__(self, CRM: str, PrimeiroNomeMedico: str, NomeMeioMedico: str, UltimoNomeMedico: str, Especializacao: str):
         self.CRM = CRM
