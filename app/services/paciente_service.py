@@ -78,9 +78,9 @@ class PacienteService:
             if cadastro:
                 cadastro.ciptea = input("Digite seu CIPTEA: ")
                 cadastro.data_nascimento = input("Digite sua data de nascimento (DD-MM-AAAA): ")
-                cadastro.primeiro_nome = input("Digite seu primeiro nome: ")
-                cadastro.nome_meio = input("Digite seu nome do meio (opcional): ")
-                cadastro.ultimo_nome = input("Digite seu último nome: ")
+                cadastro.primeiro_nome = input("Digite o primeiro nome do paciente: ")
+                cadastro.nome_meio = input("Digite o nome do meio do paciente (opcional): ")
+                cadastro.ultimo_nome = input("Digite o último nome do paciente: ")
 
                 cadastro.primeiro_nome_pai = input("Digite o primeiro nome do pai do paciente: ")
                 cadastro.nome_meio_pai = input("Digite o nome do meio do pai do paciente (opcional): ")

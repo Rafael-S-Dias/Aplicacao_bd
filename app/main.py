@@ -33,6 +33,7 @@ def main():
 
     def gerenciar_responsavel():
         while True:
+            os.system("cls || clear")
             print("1 - Adicionar responsavel \n2 - Pesquisar um reponsavel \n3 - Atualizar dados de um reponsavel \
                     \n4 - Excluir um reponsavel \n5 - Exibir todos os reponsaveis cadastrados \n0 - Sair")
                 
@@ -68,7 +69,7 @@ def main():
                     responsaveis = responsavel_service.listar_todos_responsaveis()
 
                     for responsavel in responsaveis:
-                        print(f"Id: {responsavel.id} | Email: {responsavel.email} | DDD: {responsavel.ddd}| Telefone: {responsavel.telefone}") 
+                        print(f"Id: {responsavel.id} | Nome: {responsavel.PrimeiroNomeResponsavel} | Sobrenome: {responsavel.UltimoNomeResponsavel} | Email: {responsavel.Email} | DDD: {responsavel.DDD}| Telefone: {responsavel.NumTelefone}") 
                         time.sleep(2)
                 case 0:
                     os.system("cls || clear")
@@ -287,12 +288,12 @@ def main():
             print("======== NUZA =========")
             print("BEM VINDO!")
             while True:
-                email = input("Digite seu e-mail: ")
-                senha = input("Digite sua senha: ")
+                Email = input("Digite seu e-mail: ")
+                Senha = input("Digite sua senha: ")
 
-                responsavel = responsavel_service.login_responsavel(email, senha)
+                responsavel = responsavel_service.login_responsavel(Email, Senha)
                 if responsavel:
-                    print(f"Login bem-sucedido! Bem-vindo, {responsavel.email}.")
+                    print(f"Login bem-sucedido! Bem-vindo, {responsavel.Email}.")
                     break
                 else:
                     print("Credenciais inválidas. Tente novamente.")

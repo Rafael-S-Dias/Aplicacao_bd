@@ -14,12 +14,12 @@ class ResponsavelRepository:
         self.session.commit()
         self.session.refresh(responsavel)
 
-    def pesquisar_responsavel_por_email(self,email:str):
-        return self.session.query(Responsavel).filter_by(email = email).first()
+    def pesquisar_responsavel_por_email(self,Email:str):
+        return self.session.query(Responsavel).filter_by(Email = Email).first()
 
     def deletar_responsavel(self, responsavel):
         self.session.delete(responsavel)
         self.session.commit()
 
-    def listar_todos_responsavels(self):
+    def listar_todos_responsaveis(self):
         return self.session.query(Responsavel).all()
