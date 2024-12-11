@@ -7,7 +7,7 @@ Base = declarative_base()
 class Paciente(Base):
     __tablename__ = "paciente"
 
-    CPF = Column(Integer, unique=True, primary_key=True)
+    CPF = Column(String(14), unique=True, primary_key=True)
     CIPTEA = Column(String(20), unique=True, nullable=False)
     DataNascimento = Column( Date, nullable=False)
     PrimeiroNomePaciente = Column(String(20), nullable=False)
