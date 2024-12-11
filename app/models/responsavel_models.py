@@ -7,7 +7,7 @@ Base = declarative_base()
 class Responsavel(Base):
     __tablename__ = "responsavel"
 
-    id = Column(Integer, primary_key=True, autoincrement=True)
+    IdResponsavel = Column(Integer, primary_key=True, autoincrement=True)
     PrimeiroNomeResponsavel = Column (String(30), nullable=False)
     NomeMeioResponsavel = Column (String(30), nullable=False)
     UltimoNomeResponsavel = Column (String(30), nullable=False)

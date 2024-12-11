@@ -69,7 +69,7 @@ def main():
                     responsaveis = responsavel_service.listar_todos_responsaveis()
 
                     for responsavel in responsaveis:
-                        print(f"Id: {responsavel.id} | Nome: {responsavel.PrimeiroNomeResponsavel} | Sobrenome: {responsavel.UltimoNomeResponsavel} | Email: {responsavel.Email} | DDD: {responsavel.DDD}| Telefone: {responsavel.NumTelefone}") 
+                        print(f"Id: {responsavel.IdResponsavel} | Nome: {responsavel.PrimeiroNomeResponsavel} | Sobrenome: {responsavel.UltimoNomeResponsavel} | Email: {responsavel.Email} | DDD: {responsavel.DDD}| Telefone: {responsavel.NumTelefone}") 
                         time.sleep(2)
                 case 0:
                     os.system("cls || clear")
