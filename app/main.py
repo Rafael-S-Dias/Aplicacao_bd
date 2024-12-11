@@ -83,6 +83,7 @@ def main():
                     time.sleep(2)
 
     def gerenciar_paciente():
+        os.system("cls || clear")
         while True:
             print("1 - Adicionar paciente \n2 - Pesquisar um paciente \n3 - Atualizar dados de um paciente \
                     \n4 - Excluir um paciente \n5 - Exibir todos os pacientes cadastrados \n0 - Sair")
@@ -133,6 +134,7 @@ def main():
                     time.sleep(2)
 
     def gerenciar_consultas():
+        os.system("cls || clear")
         while True:
             print("1 - Adicionar consultas \n2 - Pesquisar um consultas \n3 - Atualizar dados de um consultas \
                     \n4 - Excluir um consultas \n5 - Exibir todos os consultas cadastrados \n0 - Sair")
@@ -183,6 +185,7 @@ def main():
                     time.sleep(2)
 
     def gerenciar_retiradas():
+        os.system("cls || clear")
         while True:
             print("1 - Adicionar retirada \n2 - Pesquisar um retirada \n3 - Atualizar dados de um retirada \
                     \n4 - Excluir um retirada \n5 - Exibir todos os retiradas cadastrados \n0 - Sair")
@@ -233,6 +236,7 @@ def main():
                     time.sleep(2)
 
     def gerenciar_medicos():
+        os.system("cls || clear")
         while True:
             print("1 - Adicionar medico \n2 - Pesquisar um medico \n3 - Atualizar dados de um medico \
                     \n4 - Excluir um medico \n5 - Exibir todos os medicos cadastrados \n0 - Sair")
@@ -269,7 +273,7 @@ def main():
                     medicos = medico_service.listar_todos_medicos()
 
                     for medico in medicos:
-                        print(f" CRM: {medico.crm} | Nome: {medico.primeiroNome} | Sobrenome: {medico.ultimoNome} | Especialidade: {medico.especialiadade}") 
+                        print(f" CRM: {medico.CRM} | Nome: {medico.PrimeiroNomeMedico} | Sobrenome: {medico.UltimoNomeMedico} | Especialidade: {medico.Especializacao}") 
                         time.sleep(2)
                 case 0:
                     os.system("cls || clear")
@@ -285,6 +289,7 @@ def main():
 
     def menu():
         while True:
+            os.system("cls || clear")
             print("======== NUZA =========")
             print("BEM VINDO!")
             while True:

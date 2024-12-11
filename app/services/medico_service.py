@@ -7,15 +7,15 @@ class MedicoService:
 
     def criar_medico(self) :
         try:
-            crm = input("Digite o CRM do médico: ")
-            primeiro_nome = input("Digite o primeiro nome do médico: ")
-            nome_meio = input("Digite seu nome do meio do médico (opcional): ")
-            ultimo_nome = input("Digite seu último nome do médico: ")
-            especialidade = input("Digite a especialidade do médico: ")
+            CRM = input("Digite o CRM do médico: ")
+            PrimeiroNomeMedico = input("Digite o primeiro nome do médico: ")
+            NomeMeioMedico = input("Digite seu nome do meio do médico (opcional): ")
+            UltimoNomeMedico = input("Digite seu último nome do médico: ")
+            Especializacao = input("Digite a especialidade do médico: ")
 
-            medico = Medico(crm = crm, primeiroNome = primeiro_nome, nomeMeio = nome_meio, ultimoNome = ultimo_nome, especialiadade = especialidade)
+            medico = Medico(CRM = CRM, PrimeiroNomeMedico = PrimeiroNomeMedico, NomeMeioMedico = NomeMeioMedico, UltimoNomeMedico = UltimoNomeMedico, Especializacao = Especializacao)
 
-            cadastro = self.repository.pesquisar_medico_por_crm(crm = medico.crm)
+            cadastro = self.repository.pesquisar_medico_por_crm(CRM = medico.CRM)
             if cadastro:
                 print("Médico já cadastrado! Tente novamente")
                 return
@@ -29,9 +29,9 @@ class MedicoService:
 
     def deletar_medico(self):
         try:
-            crm = input("Digite o CRM do médico que deseja deletar: ")
+            CRM = input("Digite o CRM do médico que deseja deletar: ")
 
-            cadastro = self.repository.pesquisar_medico_por_crm(crm)
+            cadastro = self.repository.pesquisar_medico_por_crm(CRM)
             if cadastro:
                 self.repository.deletar_medico(cadastro)
                 print("Médico deletado com sucesso")
@@ -45,14 +45,14 @@ class MedicoService:
 
     def atualizar_medico(self):
         try:
-            crm = input("Digite o CRM do médico que deseja atualizar: ")
+            CRM = input("Digite o CRM do médico que deseja atualizar: ")
 
-            cadastro = self.repository.pesquisar_medico_por_crm(crm)
+            cadastro = self.repository.pesquisar_medico_por_crm(CRM)
             if cadastro:
-                cadastro.primeiro_nome = input("Digite o primeiro nome do médico: ")
-                cadastro.nome_meio = input("Digite seu nome do meio do médico (opcional): ")
-                cadastro.ultimo_nome = input("Digite seu último nome do médico: ")
-                cadastro.especialidade = input("Digite a especialidade do médico: ")
+                cadastro.PrimeiroNomeMedico = input("Digite o primeiro nome do médico: ")
+                cadastro.NomeMeioMedico = input("Digite seu nome do meio do médico (opcional): ")
+                cadastro.UltimoNomeMedico = input("Digite seu último nome do médico: ")
+                cadastro.Especializacao = input("Digite a especialidade do médico: ")
  
                 self.repository.atualizar_medico(cadastro)
                 print("Médico atualizado com sucesso")
@@ -71,7 +71,7 @@ class MedicoService:
             cadastro = self.repository.pesquisar_medico_por_crm(crm)
             if cadastro:
                 print("Dados do Médico: ")
-                print(f"\n CRM: {cadastro.crm} | Nome: {cadastro.primeiroNome} | Sobrenome: {cadastro.ultimoNome} | Especialidade: {cadastro.especialiadade}")
+                print(f"\n CRM: {cadastro.CRM} | Nome: {cadastro.PrimeiroNomeMedico} | Sobrenome: {cadastro.UltimoNomeMedico} | Especialidade: {cadastro.Especializacao}")
                 return
             
             print("Médico não encontrado")

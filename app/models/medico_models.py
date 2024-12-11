@@ -1,24 +1,21 @@
 from sqlalchemy import Column, String
 from sqlalchemy.orm import declarative_base
-# from config.database import db
+
 
 Base = declarative_base()
 
 class Medico(Base):
     __tablename__ = "medico"
 
-    crm = Column(String(30), unique=True, primary_key=True)
-    primeiroNome = Column(String(30), nullable=False)
-    nomeMeio = Column(String(30))
-    ultimoNome = Column(String(30), nullable=False)
-    especialiadade = Column(String(30), nullable=False)
+    CRM = Column(String(30), unique=True, primary_key=True)
+    PrimeiroNomeMedico = Column(String(30), nullable=False)
+    NomeMeioMedico = Column(String(30))
+    UltimoNomeMedico = Column(String(30), nullable=False)
+    Especializacao = Column(String(30), nullable=False)
 
-    def __init__(self, crm: str, primeiroNome: str, nomeMeio: str, ultimoNome: str, especialiadade: str):
-        self.crm = crm
-        self.primeiroNome = primeiroNome
-        self.nomeMeio = nomeMeio
-        self.ultimoNome = ultimoNome
-        self.especialiadade = especialiadade
-
-    
-# Base.metadata.create_all(bind=db)
+    def __init__(self, CRM: str, PrimeiroNomeMedico: str, NomeMeioMedico: str, UltimoNomeMedico: str, Especializacao: str):
+        self.CRM = CRM
+        self.PrimeiroNomeMedico = PrimeiroNomeMedico
+        self.NomeMeioMedico = NomeMeioMedico
+        self.UltimoNomeMedico = UltimoNomeMedico
+        self.Especializacao = Especializacao

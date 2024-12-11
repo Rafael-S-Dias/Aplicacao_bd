@@ -14,8 +14,8 @@ class MedicoRepository:
         self.session.commit()
         self.session.refresh(medico)
 
-    def pesquisar_medico_por_crm(self,crm:str):
-        return self.session.query(Medico).filter_by(crm = crm).first()
+    def pesquisar_medico_por_crm(self,CRM:str):
+        return self.session.query(Medico).filter_by(CRM = CRM).first()
 
     def deletar_medico(self, medico):
         self.session.delete(medico)
